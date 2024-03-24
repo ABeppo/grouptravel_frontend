@@ -1,0 +1,19 @@
+.container {
+    background-color: var(--primary-green-color);
+    border-radius: 1rem;
+    justify-content: center;
+    padding: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.container h2 {
+    padding: .5rem 0;
+}
+
+.whiteContainer {
+    width: 80%;
+    background-color: white;
+    color: var(--primary-black-color);
+    border-radius: 1rem;
+    padding: 0.25rem;
+}

@@ -1,0 +1,125 @@
+.headerBurger {
+    width: 100%;
+    min-height: 5rem;
+    background-color: rgba(255, 255, 255, 0.4);
+    margin-bottom: 1rem;
+    padding: 1rem;
+}
+
+.buttonBurger {
+    height: 5rem;
+    width: 5rem;
+    background-color: transparent;
+}
+
+.toReveal {
+    display: grid;
+    grid-template-columns: 1rem 1fr;
+    align-items: center;
+    gap: .5rem;
+    max-width: 10rem;
+}
+
+.link {
+    color: var(--primary-black-color);
+    text-decoration: none;
+
+    /* test link animation */
+    display: block;
+    padding: 5px 0;
+    font-size: 1.3rem;
+    line-height: 1;
+    font-weight: bold;
+    position: relative;
+    z-index: 1;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    /* last property of background-image sets the text color */
+    background-image: linear-gradient(to right,
+            var(--primary-red-color),
+            var(--primary-red-color) 50%,
+            var(--primary-black-color) 50%);
+    background-size: 200% 100%;
+    background-position: -100%;
+    transition: all 0.3s ease-in-out;
+}
+
+.link:before {
+    display: block;
+    content: '';
+    width: 0;
+    height: 3px;
+    bottom: 5px;
+    left: 0;
+    bottom: -3px;
+    z-index: 0;
+    position: absolute;
+    background: var(--primary-red-color);
+    transition: all 0.3s ease-in-out;
+}
+
+.link:hover,
+.link:focus {
+    background-position: 0%;
+}
+
+.link:hover:before,
+.link:focus:before {
+    width: 100%;
+}
+
+.buttonHeader {
+    border: none;
+    font-size: 1.2rem;
+}
+
+/* Styling current link for left menu */
+.active {
+    font-weight: bold;
+    text-decoration: none;
+    color: var(--primary-red-color);
+    font-size: 1.5rem;
+}
+
+.headerIconMain {
+    width: 2rem;
+    height: 2rem;
+    color: var(--primary-black-color);
+}
+
+.headerIcon {
+    width: 2rem;
+    color: var(--primary-black-color);
+}
+
+/* Styling trips list */
+
+.tripsContainer ul {
+    display: flex;
+    flex-direction: column;
+}
+
+.tripsContainer:hover .tripsList {
+    max-height: inherit;
+    opacity: 1;
+}
+
+.tripsList {
+    list-style-type: none;
+    padding: 0px;
+    margin: 0px;
+    max-height: 0px;
+    opacity: 0;
+    overflow: hidden;
+    transition: opacity 300ms ease;
+    position: absolute;
+}
+
+.voyageNameContainer:hover {
+    color: var(--primary-red-color);
+    /* font-size: 1.2rem; */
+}
+
+.popover {
+    cursor: pointer;
+}

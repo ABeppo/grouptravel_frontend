@@ -1,0 +1,146 @@
+.container {
+    background-color: var(--primary-orange-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    padding: 2% 5% 5%;
+
+    border-radius: 1rem;
+}
+
+.inputContainer {
+    justify-content: center;
+    align-items: center;
+}
+
+.title {
+    color: #ffff;
+    font-size: x-large;
+    font-weight: 32;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    /* color: var(--primary-black-color) */
+}
+
+.logo {
+    width: 35%;
+    /* color: var(--primary-blue-color); */
+    font-weight: bold;
+    font-size: 2rem;
+    text-align: center;
+    color: #ffff;
+
+}
+
+.h4 {
+    display: flex;
+    margin-bottom: 0.5rem;
+    margin-top: 2rem;
+}
+
+.inputTextContainer {
+    color: #ffff;
+    margin-bottom: 1rem;
+    width: 100%;
+}
+
+.error {
+    color: white;
+    font-size: smaller;
+}
+
+.buttonContainer {
+    flex-direction: column;
+    /* align-items: center; */
+}
+
+.button {
+
+    align-items: center;
+    justify-content: center;
+    width: 15vw;
+    height: 5vh;
+    background-color: transparent;
+    border: 2px solid #ffff;
+    color: #ffff;
+    border-radius: 0.625rem;
+    cursor: pointer;
+    transition-duration: 0.5s;
+    margin-bottom: 2%;
+}
+
+.button:hover {
+    background-color: #ffff;
+    color: var(--primary-orange-color);
+    border: none;
+}
+
+
+.input:hover {
+    background-color: #ffff;
+    color: var(--primary-orange-color);
+    border: none;
+}
+
+/*Date input style */
+
+.dateContainers {
+    /*
+    height: 30%;
+    width: 30%;
+    color: #ffff;
+    flex-direction: row;
+    justify-content: center;
+    align-items: space-between;
+    padding-bottom: 2%;
+    */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    width: 50%;
+    margin: 0 auto;
+}
+
+.dateRow {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+
+.inputDate {
+    background-color: var(--primary-blue-color);
+    width: 100%;
+    color: #ffff;
+    border-radius: 0.625rem;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    padding: 2rem 2rem 2rem 1rem;
+    display: flex;
+    align-content: center;
+    text-align: left;
+    position: relative;
+}
+
+.inputDate:hover {
+    background-color: var(--primary-green-color);
+    color: white;
+    border: none;
+}
+
+.inputDate:focus {
+    background-color: var(--primary-green-color);
+}
+
+.textDate {
+    width: 7vw;
+    padding: 0.4rem;
+    color: #ffff;
+    font-size: x-small;
+    position: absolute;
+    z-index: 1;
+}

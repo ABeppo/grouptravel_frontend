@@ -1,0 +1,162 @@
+.newAccomodation {
+    background-color: var(--primary-orange-color);
+    padding: 2.5rem 0;
+    width: 80%;
+    border-radius: .625rem;
+}
+
+.newAccomodation *,
+.newAccomodation *::placeholder {
+    color: #ffffff;
+}
+
+.newAccomodation h1 {
+    text-align: center;
+    padding-bottom: 2.5rem;
+    font-weight: bold;
+}
+
+/* LAYOUT */
+
+.layout {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    margin: auto;
+}
+
+.top {
+    display: flex;
+    justify-content: space-between;
+    min-height: 15rem;
+}
+
+.middle {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    min-height: 10rem;
+}
+
+.bottom {
+    display: flex;
+    justify-content: space-between;
+    min-height: 15rem;
+}
+
+.leftSide {
+    display: flex;
+    align-items: baseline;
+    gap: .5rem;
+}
+
+.rightSide {
+    width: min(90%, 40rem);
+}
+
+/* INPUTS */
+
+.input {
+    margin-bottom: 1rem;
+}
+
+.inputFile {
+    background-color: transparent;
+    border: 2px solid #ffff;
+    color: #ffff;
+    border-radius: 0.625rem;
+    cursor: pointer;
+    transition-duration: 0.5s;
+    margin-bottom: 2%;
+}
+
+.top input[type="file"] {
+    color: white;
+}
+
+/* special rule for budget inputs to be in the same row */
+.inputsBudgetContainer {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Hiding arrows in "number" inputs */
+/* Chrome, Safari, Edge, Opera */
+.newAccomodation input::-webkit-outer-spin-button,
+.newAccomodation input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Firefox */
+.newAccomodation input[type="number"] {
+    appearance: textfield;
+    -moz-appearance: textfield;
+}
+
+/* Inputs stylings */
+.inputsBudget label,
+.inputDate label {
+    margin-right: 1rem;
+}
+
+.inputs {
+    display: flex;
+    flex-direction: column;
+    /*width: 70%;*/
+}
+
+.inputs label,
+.bottom label {
+    margin: 1rem 0 .7rem;
+}
+
+.inputs input,
+.inputsBudget input,
+.inputDate input,
+.bottom input {
+    background-color: transparent;
+    border: 2px solid #ffffff;
+    border-radius: .625rem;
+}
+
+.inputs input[type="text"],
+.inputsBudget input[type="number"],
+.inputDate input[type="date"],
+.bottom input[type="text"] {
+    padding: .7rem;
+}
+
+.inputs input:focus,
+.inputsBudget input:focus,
+.inputDate input:focus,
+.bottom input:focus {
+    /* TODO change color to something beautiful */
+    outline: 2px solid #C3C3C3;
+}
+
+/* TEXTAREA */
+.textarea {
+    width: 100%;
+    min-height: 10rem;
+    background-color: transparent;
+    border: 2px solid #ffffff;
+    padding: .7rem;
+    border-radius: .625rem;
+}
+
+.textarea:focus {
+    /* TODO change color to something beautiful */
+    outline: 2px solid #C3C3C3;
+}
+
+.buttonContainer {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.gmap {
+    border-radius: .625rem;
+    overflow: hidden;
+}

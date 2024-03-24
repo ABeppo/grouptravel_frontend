@@ -1,0 +1,24 @@
+.container {
+    background-color: var(--primary-red-color);
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.container h2 {
+    padding: .5rem 0;
+}
+
+.profilePictureContainer {
+    padding: 1rem 0;
+}
+
+.infoLogement {
+    padding: 0 1rem;
+}
+
+.headings {
+    padding: .5rem 0;
+}

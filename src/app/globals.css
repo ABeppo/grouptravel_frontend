@@ -1,0 +1,60 @@
+/* RESET CSS */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+img,
+picture,
+svg,
+video {
+  display: block;
+  max-width: 100%;
+}
+
+/* END RESET CSS */
+
+/* Colors used as variables */
+
+:root {
+  --primary-blue-color: #64b9bd;
+  --primary-green-color: #7dd087;
+  --primary-red-color: #ef8b7a;
+  --primary-orange-color: #f3ad68;
+  --primary-black-color: #3B3938;
+  /*
+  --primary-headings-font: '';
+  --primary-text-font: '';*/
+}
+
+/* Styling layout */
+
+body {
+  /* min-height: 100vh; */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  /* background-image: url('/backgreen.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover; */
+}
+
+.bodybackground {
+  position: fixed;
+  min-height: 100vh;
+  width: 100vw;
+  background-image: url('/backgreen.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  z-index: -1;
+}
+
+/*Make the modals transparents */
+.css-dev-only-do-not-override-1drr2mu .ant-modal .ant-modal-content {
+  background-color: transparent;
+  box-shadow: none;
+}

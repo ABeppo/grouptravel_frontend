@@ -43,7 +43,7 @@ export default function CreateTrip() {
                         lat: coordinates.lat,
                         lng: coordinates.lng,
                     }
-                    console.log(locationToSend)
+                    // console.log(locationToSend)
                     const nameToSend = groupName[0].toUpperCase() + groupName.slice(1).toLowerCase()
                     // fetch for add new trip in DDB
                     fetch('http://localhost:5500/trips/new', {
@@ -53,7 +53,7 @@ export default function CreateTrip() {
                     }).then(response => response.json())
                         .then(data => {
                             // If data.error send error.msg to front
-                            console.log('verif data avant if : ', data)
+                            // console.log('verif data avant if : ', data)
                             if (!data.result) {
                                 setErrorMsg(data.error)
                                 notification.warning({
@@ -66,12 +66,13 @@ export default function CreateTrip() {
                                 dispatch(updateMyTrips(data.newTrip));
                                 dispatch(updateCurrentTrip(data.newTrip));
                                 // rerouting user to dashboard of new trip
-                                router.push('/');                               
-                                // notification.success({
-                                //     message: 'Voyage créé !',
-                                //     description: 'Votre voyage a bien été créé !',
-                                //     placement: 'bottomRight'
-                                // })
+                                                               
+                                notification.success({
+                                    message: 'Voyage créé !',
+                                    description: 'Votre voyage a bien été créé !',
+                                    placement: 'bottomRight'
+                                })
+                                router.push('/');
                                                                
                             }
                         });

@@ -18,9 +18,11 @@ export default function Invitation() {
     const [erroMail, setErrorMail] = useState(false)
     const [emptyField, setEmptyField] = useState(false)
 
+    const urlBackend = process.env.NEXT_PUBLIC_URL_BACKEND
+
     const handleAddImput = () => {
 
-        if (emails.length < 6) {
+        if (emails.length < 5) {
             setEmails([...emails, '']); // Add a new empty email input
         } else {
             setErrorNbImput(true); // set msg error nbImput true
@@ -45,10 +47,10 @@ export default function Invitation() {
         setEmptyField(true); // Aucune adresse e-mail valide n'est saisie
         return;
     }
-
+    
     try {
         for (let email of validEmails) {
-            const response = await fetch(`http://localhost:5500/trips/addnewuser/${user.currentTrip._id}`, {
+            const response = await fetch(`${urlBackend}trips/addnewuser/${user.currentTrip._id}`, {
             method: 'PUT',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ email }), // Envoyer l'email valide au back pour chaque email valide

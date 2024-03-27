@@ -26,6 +26,8 @@ const Activity = (props, i) => {
 
     const [userParticipationStatus, setUserParticipationStatus] = useState(getInitialParticipationStatus())
 
+    const urlBackend = process.env.NEXT_PUBLIC_URL_BACKEND
+
     // takes a string as argument and capitalizes its first letter
     function capitalizeFirstLetter(str) {
         if (typeof str !== 'string' || str.length === 0) {
@@ -42,7 +44,7 @@ const Activity = (props, i) => {
             activityId,
             status: true
         }
-        fetch('http://localhost:5500/activities/vote', {
+        fetch(`${urlBackend}activities/vote`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(participationData)
@@ -62,7 +64,7 @@ const Activity = (props, i) => {
             activityId,
             status: false
         }
-        fetch('http://localhost:5500/activities/vote', {
+        fetch(`${urlBackend}activities/vote`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(participationData)

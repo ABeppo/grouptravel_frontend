@@ -12,7 +12,6 @@ return(
 <div className={styles.container} >
         
         <Chat/>
-            {/* <p style={{color: 'var(--primary-black-color)'}}>Cette fonctionnalité est en chantier, elle sera bientôt disponible !</p> */}
-    
+            
 </div>
 )}

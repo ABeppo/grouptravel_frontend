@@ -19,10 +19,12 @@ function GroupChat() {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   };
 
+  const urlBackend = process.env.NEXT_PUBLIC_URL_BACKEND
+
     
     useEffect(() => {
       // Code pour charger les messages du groupe depuis la base de données ou le service de messagerie instantanée
-      fetch('http://localhost:5500/chat/recuperation', {
+      fetch(`${urlBackend}chat/recuperation`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify( { token: user.token, idTrip: currentTrip._id, } )
@@ -43,7 +45,7 @@ function GroupChat() {
       // console.log('token',user.token, 'message', inputValue, 'idTrip', currentTrip._id)
       if (inputValue.trim() !== '') {
         // Code pour envoyer le message au backend et le diffuser à tous les membres du groupe
-        fetch('http://localhost:5500/chat/sendmsg', { 
+        fetch(`${urlBackend}chat/sendmsg`, { 
           method: 'PUT',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify( { token: user.token, idTrip: currentTrip._id, message: inputValue } )

@@ -21,8 +21,10 @@ export default function Profile() {
   const [profilePicture, setProfilePicture] = useState(null);
   const fileInputRef = useRef(null);
 
+  const urlBackend = process.env.NEXT_PUBLIC_URL_BACKEND
+
   useEffect(() => {
-    fetch('http://localhost:5500/users/getUser', {
+    fetch(`${urlBackend}users/getUser`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify( {token: user.token} ),
@@ -69,7 +71,7 @@ export default function Profile() {
       const formData = new FormData();
       formData.append("image", selectedPicture);
 
-      fetch("http://localhost:5500/upload", {
+      fetch(`${urlBackend}upload`, {
         method: "POST",
         body: formData,
       })
@@ -81,7 +83,7 @@ export default function Profile() {
 
             const newProfilePictureUrl = pictureData.url;
 
-            return fetch("http://localhost:5500/users/updateOne", {
+            return fetch(`${urlBackend}users/updateOne`, {
               method: "PUT",
               headers: { "Content-Type": "application/json"},
               body: JSON.stringify({

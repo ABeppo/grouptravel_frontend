@@ -11,12 +11,13 @@ export default function Planning(props) {
   const currentTrip = useSelector((state) => state.user.value.currentTrip);
   const dispatch = useDispatch();
   const [areFixed, setAreFixed] = useState(null);
+  const urlBackend = process.env.NEXT_PUBLIC_URL_BACKEND
 
   //console.log('planning component props.hasChanged: ', props.hasChanged);
   useEffect(() => {
     if (user.token && currentTrip && currentTrip._id) {
       
-      fetch("http://localhost:5500/planning/areFixed", {
+      fetch(`${urlBackend}planning/areFixed`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -46,7 +47,7 @@ export default function Planning(props) {
         updatedActivity.date = newDate;
     }
 
-    fetch("http://localhost:5500/planning/fixOne", {
+    fetch(`${urlBackend}planning/fixOne`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(updatedActivity),

@@ -26,33 +26,37 @@ export default function SignUp({ handleRegister }) {
     const [emailError, setEmailError] = useState(null);
     const [submitError, setSubmitError] = useState(null);
 
+    const urlBackend = process.env.NEXT_PUBLIC_URL_BACKEND 
+
     const handleSubmit = () => {
 //step to verify that email have email format        
-        if (emailRegex.test(email)){
-            setEmailError(false);
-//step to verify that passwords are the same
-            if (password === password2) {
-                setPasswordNotMatch(false);
-                fetch('http://localhost:5500/users/signup', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-//The body request contains the useStates values
-                    body: JSON.stringify({ email, username, password }),
-                }).then(response => response.json())
-                .then(data => {
-                    const {token, myTrips, userPicture } = data; 
-                    data.result && dispatch(addUserToStore({ token, username: data.username, userPicture, email: data.email, myTrips })) && setSubmitError(false);
-                    !data.result && setSubmitError(true);
-                    data.result && handleRegister();
-                    router.push('/profile')
-                })
+if (emailRegex.test(email)){
+    setEmailError(false);
+    if (password === password2) {
+        setPasswordNotMatch(false);
+        fetch(`${urlBackend}users/signup`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email, username, password }),
+        }).then(response => response.json())
+        .then(data => {
+            if (data.result) {
+                const { token, myTrips, userPicture } = data; 
+                dispatch(addUserToStore({ token, username: data.username, userPicture, email: data.email, myTrips }));
+                setSubmitError(false);
+                handleRegister();
+                router.push('/profile'); // Move redirection here
             } else {
-                setPasswordNotMatch(true)
+                setSubmitError(true);
             }
-        } else {
-            setEmailError(true)
-        }
+        })
+    } else {
+        setPasswordNotMatch(true)
     }
+} else {
+    setEmailError(true)
+}
+}
 
     return (
         <div className={styles.container}>

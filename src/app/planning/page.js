@@ -13,11 +13,12 @@ export default function PlanningPage() {
     const currentTrip = useSelector((state) => state.user.value.currentTrip);
     const [isAdmin, setIsAdmin] = useState(false);
     const [hasChanged, setHasChanged] = useState(false);
+    const urlBackend = process.env.NEXT_PUBLIC_URL_BACKEND
 
     useEffect(() => {
       if (user.token && currentTrip && currentTrip._id) {
         
-        fetch("http://localhost:5500/users/isAdmin", {
+        fetch(`${urlBackend}users/isAdmin` , {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({

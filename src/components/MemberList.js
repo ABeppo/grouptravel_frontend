@@ -12,8 +12,10 @@ export default function MembersList() {
     const currentTripId = useSelector((state) => state.user.value.currentTrip._id)
     const [membersUsername, setMembersUsername] = useState([])
 
+    const urlBackend = process.env.NEXT_PUBLIC_URL_BACKEND
+
     useEffect(() => { 
-        fetch('http://localhost:5500/users/getonetripallusername',{
+        fetch(`${urlBackend}users/getonetripallusername`, {
               method: 'POST',
               headers: { 'Content-Type': 'application/json' },
               body: JSON.stringify( {tripId: currentTripId} )

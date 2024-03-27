@@ -22,9 +22,10 @@ export default function Accommodation(props) {
     const accommodation = currentTrip.accomodations.find(accommodation => accommodation._id === _id);
     const budgetPerPerson = (budget / (currentTrip.members.length + 1)).toFixed(2);
     const [userVoteStatus, setUserVoteStatus] = useState(getInitialVoteStatus());
+    const urlBackend = process.env.NEXT_PUBLIC_URL_BACKEND
 
     useEffect(() => {
-        fetch('http://localhost:5500/users/isAdmin', {
+        fetch(`${urlBackend}users/isAdmin`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify( {currentTripId: currentTrip._id, token: userToken} )
@@ -36,7 +37,7 @@ export default function Accommodation(props) {
 
     const handleFix = (newStatus) => {
         console.log('isAdmin: ', isAdmin, 'accommodationId : ', _id , 'dates : ', currentTrip.dates, 'isFixed : ', newStatus )
-        fetch('http://localhost:5500/accomodations/fixOne', {
+        fetch(`${urlBackend}accomodations/fixOne`, {
             method: 'PUT',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify( {isAdmin, accommodationId: _id , dates: currentTrip.dates, isFixed: newStatus} )
@@ -54,7 +55,7 @@ export default function Accommodation(props) {
             tripId: currentTrip._id,
             status: true,
         }
-        fetch('http://localhost:5500/accomodations/vote', {
+        fetch(`${urlBackend}accomodations/vote`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(voteData)
@@ -72,7 +73,7 @@ export default function Accommodation(props) {
             tripId: currentTrip._id,
             status: false,
         }
-        fetch('http://localhost:5500/accomodations/vote', {
+        fetch(`${urlBackend}accomodations/vote`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(voteData)

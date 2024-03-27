@@ -27,11 +27,13 @@ export default function SignIn({ handleConnexion }) {
     const [emtyfield, setEmptyField] = useState(null);
     const [signinError, setSigninError] = useState(null);
 
+    const urlBackend = process.env.NEXT_PUBLIC_URL_BACKEND
+
     const handleSubmit = () => {
 //check if there is an email and password
         if (email !== '' && password !== ''){
             setEmptyField(false)
-            fetch('http://localhost:5500/users/signin', {
+            fetch(`${urlBackend}users/signin`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
 //The body request contains the useStates values

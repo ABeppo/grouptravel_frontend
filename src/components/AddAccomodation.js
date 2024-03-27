@@ -43,8 +43,7 @@ export default function AddAccomodation() {
   const [departureDate, setDepartureDate] = useState("");
   const [returnDate, setReturnDate] = useState("");
   const [accomodationBudget, setAccomodationBudget] = useState(0);
-  const [accomodationBudgetPerPerson, setAccomodationBudgetPerPerson] =
-    useState(0);
+  const [accomodationBudgetPerPerson, setAccomodationBudgetPerPerson] = useState(0);
   const [accomodationLocation, setAccomodationLocation] = useState("");
   const [accomodationDescription, setAccomodationDescription] = useState("");
 
@@ -76,9 +75,11 @@ export default function AddAccomodation() {
     setAccomodationPicture("");
   };
 
+  const urlBackend = process.env.NEXT_PUBLIC_URL_BACKEND
+
   //handle fetch form
   const fetchPostNewAccommodation = (accomodationData) => {
-    fetch(`http://localhost:5500/accomodations/new`, {
+    fetch(`${urlBackend}accomodations/new`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(accomodationData),
@@ -178,7 +179,7 @@ export default function AddAccomodation() {
     if (accomodationPicture) {
       const formData = new FormData();
       formData.append("image", accomodationPicture);
-      fetch("http://localhost:5500/upload", {
+      fetch(`${urlBackend}upload`, {
         method: "POST",
         body: formData,
       })

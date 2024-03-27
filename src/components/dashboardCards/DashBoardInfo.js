@@ -10,15 +10,18 @@ export default function DashboardInfo() {
   const [budgetPerPerson, setBudgetPerPerson] = useState(0);
   const [fixedAccommodation, setFixedAccommodation] = useState([]);
   let accoName = null;
+
+  const urlBackend = process.env.NEXT_PUBLIC_URL_BACKEND
+ 
   useEffect(() => { 
-    fetch('http://localhost:5500/trips/budgetonetrip',{
+    fetch(`${urlBackend}trips/budgetonetrip`,{
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify( {tripId: currentTrip._id} )
     }).then(response => response.json())
     .then(data => {
       setTotalBudget(data.tripBudget.toFixed(2))
-     fetch('http://localhost:5500/trips/onetrip',{
+     fetch(`${urlBackend}trips/onetrip`,{
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify( {tripId: currentTrip._id} )

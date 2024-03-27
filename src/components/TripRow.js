@@ -11,8 +11,10 @@ export default function TripRow(props) {
     const router = useRouter();
     const [isAdmin, setIsAdmin] = useState(false);
 
+    const urlBackend = process.env.NEXT_PUBLIC_URL_BACKEND 
+
     useEffect(() => { 
-      fetch('http://localhost:5500/users/isAdmin',{
+      fetch(`${urlBackend}users/isAdmin`,{
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify( {currentTripId: props._id, token: token} )

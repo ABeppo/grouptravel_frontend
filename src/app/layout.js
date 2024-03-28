@@ -21,7 +21,7 @@ export default function RootLayout({ children }) {
             <Header />
             {children}
             {/*<Footer />*/}
-            </StoreProvider>
+          </StoreProvider>
           </body>
       </html>
   );

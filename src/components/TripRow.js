@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { updateCurrentTrip, updateMyTrips } from '@/reducers/user';
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
+import Link from 'next/link';
 
 export default function TripRow(props) {
     const token = useSelector((state) => state.user.value.token);
@@ -27,14 +28,16 @@ export default function TripRow(props) {
     const handleGoToDash = (data) => {
       // console.log(data)
       dispatch(updateCurrentTrip(data));
-      router.push('/');
+      // router.push('/');
     }
 
     return (
       <div className={styles.row}>
           <span className={styles.tripName}>{props.name}</span>
           {isAdmin ? <span className={styles.adminBadge}>ADMIN</span> : <span className={styles.inviteBadge}>INVITÉ</span>}         
-          <button className={styles.goButton} onClick={() => handleGoToDash(props)}>Go</button>                   
+          <Link href="/">
+            <button className={styles.goButton} onClick={() => handleGoToDash(props)}>Go</button>
+          </Link>                   
       </div>
     );
   }

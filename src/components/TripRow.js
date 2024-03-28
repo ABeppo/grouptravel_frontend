@@ -29,8 +29,9 @@ export default function TripRow(props) {
     const handleGoToDash = (data) => {
       // console.log(data)
       dispatch(updateCurrentTrip(data));
-      revalidatePath('/');
+      // revalidatePath('/');
       // router.refresh();
+      router.reload('/') 
     }
 
     return (

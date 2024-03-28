@@ -28,16 +28,17 @@ export default function TripRow(props) {
     const handleGoToDash = (data) => {
       // console.log(data)
       dispatch(updateCurrentTrip(data));
-      // router.push('/');
+      router.refresh()
+      router.push('/');
     }
 
     return (
       <div className={styles.row}>
           <span className={styles.tripName}>{props.name}</span>
           {isAdmin ? <span className={styles.adminBadge}>ADMIN</span> : <span className={styles.inviteBadge}>INVITÉ</span>}         
-          <Link href="/">
+          {/* <Link href="/"> */}
             <button className={styles.goButton} onClick={() => handleGoToDash(props)}>Go</button>
-          </Link>                   
+          {/* </Link>                    */}
       </div>
     );
   }

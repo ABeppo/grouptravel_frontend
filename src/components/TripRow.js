@@ -22,10 +22,11 @@ export default function TripRow(props) {
           .then(data => {
               data && setIsAdmin(data.isAdmin)
           })    
-    }, []);
+    }, [token]);
 
-    const handleGoToDash = () => {
-      dispatch(updateCurrentTrip(props));
+    const handleGoToDash = (data) => {
+      // console.log(data)
+      dispatch(updateCurrentTrip(data));
       router.push('/');
     }
 

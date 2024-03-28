@@ -24,8 +24,8 @@ export default function TripRow(props) {
           })    
     }, []);
 
-    const handleGoToDash = (data) => {
-      dispatch(updateCurrentTrip(data));
+    const handleGoToDash = () => {
+      dispatch(updateCurrentTrip(props));
       router.push('/');
     }
 

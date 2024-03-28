@@ -5,6 +5,7 @@ import { updateCurrentTrip, updateMyTrips } from '@/reducers/user';
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
+import { revalidatePath } from 'next/cache'
 
 export default function TripRow(props) {
     const token = useSelector((state) => state.user.value.token);
@@ -28,8 +29,8 @@ export default function TripRow(props) {
     const handleGoToDash = (data) => {
       // console.log(data)
       dispatch(updateCurrentTrip(data));
-      router.push('/');
-      router.refresh()
+      revalidatePath('/');
+      // router.refresh();
     }
 
     return (

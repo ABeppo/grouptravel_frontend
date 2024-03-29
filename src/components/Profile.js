@@ -32,7 +32,7 @@ export default function Profile() {
   .then(userData => {  
     dispatch(addUserToStore(userData))
     });
-  } , [rerender]);
+  } , [user]);
 
   //Map on user.myTrips Only if != null
   const trips =

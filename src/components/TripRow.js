@@ -30,8 +30,7 @@ export default function TripRow(props) {
       // console.log(data)
       dispatch(updateCurrentTrip(data));
       // revalidatePath('/');
-      // router.refresh();
-      router.reload('/') 
+      router.push('/');
     }
 
     return (

@@ -20,7 +20,7 @@ export default function SignIn({ handleConnexion }) {
         if (user.token) {
             router.push('/profile');
         }
-    }, [user.token, router])
+    }, [user.token])
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');

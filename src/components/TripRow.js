@@ -29,7 +29,7 @@ export default function TripRow(props) {
     const handleGoToDash = (data) => {
       // console.log(data)
       dispatch(updateCurrentTrip(data));
-      // revalidatePath('/');
+      router.refresh();
       router.push('/');
     }
 

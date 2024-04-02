@@ -23,6 +23,7 @@ export default function tokenwithTripsIdPage() {
     const token = params.token
     const tripId = params.tripId
     const user = useSelector((state) => state.user.value);
+    const urlBackend = process.env.NEXT_PUBLIC_URL_BACKEND
 
     useEffect(() => { 
         // console.log(token)
